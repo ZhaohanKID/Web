@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>验证码</title>
+    <script>
+        window.onload = function () {
+            // 获取图片对象
+            var img = document.getElementById("checkCode");
+            // 绑定单击事件
+            img.onclick = function () {
+                // 为了防止缓存图片重复，使用时间戳
+                var date = new Date().getTime();
+                img.src = "/day15/CheckCodeServlet?" + date;
+            }
+
+            var a = document.getElementById("change");
+            a.onclick = function () {
+                var date = new Date().getTime();
+                a.href = "/day15/register.html?" + date;
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <img id="checkCode" src="/day15/CheckCodeServlet">
+    <a id="change" href="/day15/CheckCodeServlet">看不清换一张？</a>
+</body>
+</html>
